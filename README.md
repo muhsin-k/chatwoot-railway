@@ -4,6 +4,12 @@
 
 [Chatwoot](https://www.chatwoot.com/) is the open-source customer support platform: a shared inbox for email, website live chat, WhatsApp, Instagram, Telegram and more, with automations, canned responses, CSAT surveys, and Captain AI — a self-hosted alternative to Intercom and Zendesk.
 
+## Screenshots
+
+![Chatwoot](https://raw.githubusercontent.com/nomideusz/chatwoot-railway/main/images/03.png)
+
+![Chatwoot shared inbox with omnichannel conversations](https://raw.githubusercontent.com/nomideusz/chatwoot-railway/main/images/02.png)
+
 ## About Hosting Chatwoot
 
 Chatwoot v4 is a Rails application with a real background-job tier. This template runs it as four Railway services: the web app (Rails/Puma), a dedicated Sidekiq worker (emails, automations, campaigns — kept off the web process so conversations stay snappy), PostgreSQL 16 **with pgvector** (required by v4 for Captain AI; the missing extension is why older Chatwoot templates broke on upgrade), and password-protected Redis for queues and ActionCable. Attachments go to a **Railway bucket over S3** instead of a service volume, and database migrations run as a Railway pre-deploy command (`rails db:chatwoot_prepare`) so every upgrade migrates itself. First boot takes ~2 minutes of migrations, then create your admin account at the web service's domain.
